@@ -1,0 +1,164 @@
+/* Contenedor principal (El Marco) */
+#cf-form {
+    max-width: 450px;
+    margin: 20px auto;
+    padding: 30px;
+    border: 1px solid #632D3A;
+    border-radius: 30px;
+    background-color: #FFFDF8;
+    font-family: Barlow;
+    color: #632D3A; 
+}
+
+/* Título */
+#cf-form h3 {
+    text-align: center;
+    color: #712B38;
+    font-size: 28px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+/* Inputs de texto (Nombre, Tel, Email) */
+.cf-input {
+    width: 100%;
+    padding: 8px 40px;
+    margin-bottom: 10px;
+    border: 1px solid  #632D3A;
+    font-family: Barlow;
+    font-size: 22px;
+    border-radius: 5px;
+    background: transparent;
+    color: #712B38;
+    box-sizing: border-box; /* Importante para que no se salga del marco */
+}
+
+.cf-input::placeholder {
+    color: #712B38;
+    opacity: 0.8;
+}
+
+
+/* Botones de Servicios */
+.cf-btn-service {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #632D3A;
+    border-radius: 25px; 
+    background: transparent;
+    color: #712B38;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.cf-services{
+    margin-top: 10px;
+    
+}
+
+.cf-btn-service:hover {
+    background-color: #F0CCD7;  
+}
+
+/* Sección de Acciones */
+.cf-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cf-action-group {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    
+}
+
+
+/* Botón Seleccionar Fecha (Amarillo suave) */
+#cf-date {
+    background-color: #EBE682;
+    border: none;
+    border-radius: 20px;
+    padding: 15px;
+    color: #712B38;
+    cursor: pointer;
+}
+
+/* Botón Te Llamamos (Rosa malva) */
+#cf-call {
+    background-color: #DD7D99;
+    border: none;
+    border-radius: 20px;
+    padding: 15px;
+    color: #712B38;
+    cursor: pointer;
+}
+
+/* Labels debajo de los botones de acción */
+.cf-action-group label {
+    font-size: 12px;
+    margin-top: 10px;
+    color: #712B38;
+    line-height: 1.2;
+}
+
+/* Checkboxes y Legal */
+.cf-checkbox-group{
+    width: 70%;
+    margin: 20px 0;
+    font-size: 16px;
+    font-family: Barlow;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+
+/* Separador y Enlaces finales */
+hr {
+    border: 0;
+    border-top: 1px solid #f0e0e0;
+    margin: 20px 0;
+}
+
+.cf-footer-links {
+    font-size: 16px;
+    margin-top: 10px;
+        margin-left: 30px;
+}
+
+.cf-footer-links a {
+    color: #712B38;
+    text-decoration: none;
+}
+
+.step {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.step.active {
+    display: block;
+}
+
+.step.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilo básico para botones */
+button, .options-group label {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background: #f9f9f9;
+}
