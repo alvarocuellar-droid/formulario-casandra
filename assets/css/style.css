@@ -129,13 +129,16 @@ hr {
 .cf-footer-links {
     font-size: 16px;
     margin-top: 10px;
-        margin-left: 30px;
+    margin-left: 30px;
 }
 
 .cf-footer-links a {
     color: #712B38;
     text-decoration: none;
 }
+
+
+/* Estilos para mostrar y ocultar los pasos */
 
 .step {
     display: none;
@@ -153,6 +156,7 @@ hr {
     transform: translateY(0);
 }
 
+
 /* Estilo básico para botones */
 button, .options-group label {
     display: inline-block;
@@ -161,4 +165,37 @@ button, .options-group label {
     border: 1px solid #ccc;
     cursor: pointer;
     background: #f9f9f9;
+}
+
+
+/* Pastillas selección  */
+
+.cf-pill-selector-container {
+    margin: 20px;
+}
+
+.cf-pill-selector {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.cf-pill {
+    padding: 8px 16px;
+    border: 2px solid #ff0000;
+    color: #ff0000;
+    background-color: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    transition: all 0.2s ease;
+}
+
+.cf-pill.selected {
+    background-color: #ff0000;
+    color: white;
+}
+
+.cf-pill:hover:not(.selected) {
+    background-color: rgba(255, 0, 0, 0.1);
 }

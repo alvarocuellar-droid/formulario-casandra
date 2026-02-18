@@ -10,7 +10,7 @@ Author: Alvaro Cuellar
 function casandraformulario_shortcode()
 { // Función para generar el formulario
     ob_start();
-?>
+    ?>
     <!--<div class="contenedor-formulario">
         
         <form action="<?php echo esc_url($_SERVER['REQUEST_URI']); ?>" method="post" id="cf-form">
@@ -68,10 +68,14 @@ function casandraformulario_shortcode()
                     <input type="email" class="cf-input" id="cf-email" name="cf-email" placeholder="EMAIL" required><br>
                 </div>
                 <div class="cf-section cf-services">
-                    <button type="button" class="cf-btn-service" data-goto="fc-step-hormonal-1">TERAPIA HORMONAL integral</button><br>
-                    <button type="button" class="cf-btn-service">consultar mi caso</button><br>
-                    <button type="button" class="cf-btn-service">CASANDRA CARE</button><br>
-                    <button type="button" class="cf-btn-service">lorem ipsum</button><br>
+                    <div class="pill-selector-container" data-options='[
+                            {"label": "Terapia hormonal integral", "value": "1", "data-goto": "fc-step-hormonal-1"},
+                            {"label": "Consultar mi caso", "value": "2", "data-goto": "fc-step-disponibilidad"},
+                            {"label": "Casandra CARE", "value": "3", "data-goto": "fc-step-disponibilidad"},
+                            {"label": "Lorem ipsum", "value": "3", "data-goto": "fc-step-disponibilidad"}
+                        ]'>
+                        <input type="hidden" class="pill-selector-value" name="selected_option_2" value="">
+                    </div>
                 </div>
                 <div class="cf-section cf-legal">
                     <div class="cf-checkbox-group">
@@ -206,7 +210,7 @@ function casandraformulario_shortcode()
         </form>
     </div>
 
-<?php
+    <?php
     return ob_get_clean();
 }
 
@@ -214,11 +218,18 @@ function casandra_cargar_estilos()
 { // Función para cargar los estilos CSS
     wp_enqueue_style('casandraformulario-style', plugin_dir_url(__FILE__) . 'assets/css/style.css');
     wp_enqueue_script(
-        'casandra-logic',
-        plugin_dir_url(__FILE__) . 'assets/js/form-logic.js',
-        array(), // Dependencias (ninguna por ahora)
-        '1.0',
-        true     // Cargar en el footer para que no ralentice la web
+            'casandra-logic',
+            plugin_dir_url(__FILE__) . 'assets/js/steps.js',
+            array(), // Dependencias (ninguna por ahora)
+            '1.0',
+            true     // Cargar en el footer para que no ralentice la web
+    );
+    wp_enqueue_script(
+            'casandra-logic',
+            plugin_dir_url(__FILE__) . 'assets/js/pills.js',
+            array(),
+            '1.0',
+            true
     );
 }
 
