@@ -19,6 +19,10 @@
     user-select: none;
 }
 
+.multi-step-form strong {
+    font-weight: bold !important;
+}
+
 /* Título */
 #cf-test1-title {
     text-align: center;
