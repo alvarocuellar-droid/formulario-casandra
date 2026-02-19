@@ -7,8 +7,12 @@ Author: Alvaro Cuellar
 */
 
 
+/**
+ * Función para generar el formulario
+ * @return false|string
+ */
 function casandraformulario_shortcode()
-{ // Función para generar el formulario
+{
     ob_start();
     $imgUrl = plugin_dir_url(__FILE__) . 'assets/img/';
     ?>
@@ -47,10 +51,10 @@ function casandraformulario_shortcode()
                 </div>
                 <div class="cf-section cf-actions">
                     <div class="cf-action-group">
-                        <button type="button" id="cf-date" class="cf-btn-main" data-goto="fc-step-disponibilidad">Ver disponibilidad</button>
+                        <button type="button" id="cf-date" class="cf-btn-main btn-validate" data-goto="fc-step-disponibilidad">Ver disponibilidad</button>
                     </div>
                     <div class="cf-action-group" data-toggle-id="motivo_consulta" data-toggle-show-if-value="1">
-                        <button type="button" id="cf-call" class="cf-btn-main" data-goto="fc-step-test-1">Test de compatibilidad</button>
+                        <button type="button" id="cf-call" class="cf-btn-main btn-validate" data-goto="fc-step-test-1">Test de compatibilidad</button>
                     </div>
                 </div>
             </div>
@@ -135,7 +139,7 @@ function casandraformulario_shortcode()
                 </div>
 
                 <button type="button" class="cf-btn-main" data-goto="fc-step-inicio">Anterior</button>
-                <button type="button" class="cf-btn-main" data-goto="fc-step-test-2">Siguiente</button>
+                <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-test-2">Siguiente</button>
 
             </div>
             <!-- Pantalla 3 -->
@@ -151,27 +155,27 @@ function casandraformulario_shortcode()
                     No
                 </label>
                 <div data-toggle-id="cf_tabaco" data-toggle-show-if-value="1">
-                    <input type="text" name="cf_tabaco_cantidad" placeholder="Cantidad/duración" value=""/>
+                    <input type="text" name="cf_tabaco_cantidad" placeholder="Cantidad/duración" value="">
                 </div>
 
                 <label for="cf_peso">Peso (Kg)</label>
-                <input type="number" name="cf_peso" id="cf_peso" placeholder="Peso (Kg)" value=""/><br>
+                <input type="number" name="cf_peso" id="cf_peso" placeholder="Peso (Kg)" min="20" max="300" value="" required><br>
 
-                <label for="cf_altura">Altura (com)</label>
-                <input type="number" name="cf_altura" id="cf_altura" placeholder="Altura (com)" value=""/><br>
+                <label for="cf_altura">Altura (cm)</label>
+                <input type="number" name="cf_altura" id="cf_altura" placeholder="Altura (cm)" min="100" max="250" value="" required><br>
                 <br>
                 <span>Tu IMC es de: <strong id="cf_imc">-</strong></span>
 
 
                 <button type="button" class="cf-btn-main" data-goto="fc-step-test-1">Anterior</button>
-                <button type="button" class="cf-btn-main" data-goto="fc-step-test-3">Siguiente</button>
+                <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-test-3">Siguiente</button>
 
             </div>
             <!-- Pantalla 4 -->
             <div class="step" id="fc-step-test-3">
                 <h3>Test 3</h3>
                 <button type="button" class="cf-btn-main" data-goto="fc-step-test-2">Anterior</button>
-                <button type="button" class="cf-btn-main" data-goto="fc-step-test-4">Siguiente</button>
+                <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-test-4">Siguiente</button>
 
             </div>
             <!-- Pantalla 5 -->
@@ -199,7 +203,7 @@ function casandraformulario_shortcode()
                 </label>
 
                 <button type="button" class="cf-btn-main" data-goto="fc-step-test-3">Anterior</button>
-                <button type="button" class="cf-btn-main" data-goto="fc-step-test-5">Siguiente</button>
+                <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-test-5">Siguiente</button>
             </div>
             <!-- Pantalla 6 -->
             <div class="step" id="fc-step-test-5">
@@ -209,7 +213,7 @@ function casandraformulario_shortcode()
                     Confirmo que la información es correcta y entiendo que este cuestionario no sustituye la valoración médica.
                 </label>
                 <button type="button" class="cf-btn-main" data-goto="fc-step-test-4">Anterior</button>
-                <button type="button" class="cf-btn-main" data-goto="fc-step-test-6">Terminar</button>
+                <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-test-6">Terminar</button>
             </div>
 
             <!-- Pantalla 7 -->
@@ -220,8 +224,8 @@ function casandraformulario_shortcode()
 
                 </div>
 
-                <button type="button" class="cf-btn-main" data-goto="fc-step-disponibilidad">Agendar una cita</button>
-                <button type="button" class="cf-btn-main">Quiero que me llamen</button>
+                <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-disponibilidad">Agendar una cita</button>
+                <button type="button" class="cf-btn-main btn-validate">Quiero que me llamen</button>
             </div>
             <!-- Apartado de disponibilidad con las fechas y horas dispopnibles -->
             <div class="step" id="fc-step-disponibilidad">
@@ -235,41 +239,30 @@ function casandraformulario_shortcode()
     return ob_get_clean();
 }
 
+
+/**
+ * Función para cargar los estilos CSS
+ * @return void
+ */
 function casandra_cargar_estilos()
-{ // Función para cargar los estilos CSS
-    wp_enqueue_style('casandraformulario-style', plugin_dir_url(__FILE__) . 'assets/css/style.css');
-    wp_enqueue_script(
-            'cf-pills',
-            plugin_dir_url(__FILE__) . 'assets/js/pills.js',
-            array(),
-            '1.0',
-            true
-    );
-    wp_enqueue_script(
-            'cf-steps',
-            plugin_dir_url(__FILE__) . 'assets/js/steps.js',
-            array(), // Dependencias (ninguna por ahora)
-            '1.0',
-            true     // Cargar en el footer para que no ralentice la web
-    );
-    wp_enqueue_script(
-            'cf-toggle',
-            plugin_dir_url(__FILE__) . 'assets/js/toggle.js',
-            array(), // Dependencias (ninguna por ahora)
-            '1.0',
-            true     // Cargar en el footer para que no ralentice la web
-    );
-    wp_enqueue_script(
-            'cf-imc-calculator',
-            plugin_dir_url(__FILE__) . 'assets/js/imc-calculator.js',
-            array(), // Dependencias (ninguna por ahora)
-            '1.0',
-            true     // Cargar en el footer para que no ralentice la web
-    );
+{
+    $assetsUrl = plugin_dir_url(__FILE__) . 'assets/';
+    wp_enqueue_style('casandraformulario-style', $assetsUrl . 'css/style.css');
+
+    wp_enqueue_script('cf-validate', $assetsUrl. 'js/validate.js', [], '1.0', true);
+    wp_enqueue_script('cf-pills', $assetsUrl . 'js/pills.js', [], '1.0', true);
+    wp_enqueue_script('cf-steps', $assetsUrl . 'js/steps.js', [], '1.0', true);
+    wp_enqueue_script('cf-toggle', $assetsUrl . 'js/toggle.js', [], '1.0', true);
+    wp_enqueue_script('cf-imc-calculator', $assetsUrl . 'js/imc-calculator.js', [], '1.0', true);
 }
 
+
+/**
+ * Función para procesar el formulario cuando se envía
+ * @return void
+ */
 function casandra_procesar_formulario()
-{ // Función para procesar el formulario cuando se envía
+{
     if (isset($_POST['cf-submitted'])) {
         $name = sanitize_text_field($_POST['cf-name']);
         $email = sanitize_email($_POST['cf-email']);
