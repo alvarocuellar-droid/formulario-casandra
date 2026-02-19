@@ -15,6 +15,10 @@
     color: #632D3A; 
 }
 
+.multi-step-form label {
+    user-select: none;
+}
+
 /* Título */
 #cf-form h3 {
     text-align: center;

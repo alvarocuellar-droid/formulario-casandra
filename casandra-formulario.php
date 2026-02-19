@@ -79,11 +79,13 @@ function casandraformulario_shortcode()
 
                         <div class="cf-question-row">
                             <label class="cf-checkbox-modern">
-                                <input type="checkbox" name="cf_cirugia" id="cf_cirugia_trigger">
+                                <input type="checkbox" name="cf_cirugia" id="cf_cirugia" value="1">
                                 <span class="cf-checkmark"></span>
                                 <span class="cf-question-text">¿Tienes cirugía ginecológica?</span>
                             </label>
-                            <input type="text" name="cf_cirugia_cual" id="cf_cirugia_input" class="cf-input-sub" placeholder="¿Cuál?">
+                            <div data-toggle-id="cf_cirugia" data-toggle-show-if-value="1">
+                                <input type="text" name="cf_cirugia_cual" id="cf_cirugia_input" class="cf-input-sub" placeholder="¿Cuál?">
+                            </div>
                         </div>
                     </div>
 
