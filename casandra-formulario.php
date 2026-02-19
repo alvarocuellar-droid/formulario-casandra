@@ -68,13 +68,13 @@ function casandraformulario_shortcode()
                     <input type="email" class="cf-input" id="cf-email" name="cf-email" placeholder="EMAIL" required><br>
                 </div>
                 <div class="cf-section cf-services">
-                    <div class="pill-selector-container" data-options='[
-                            {"label": "Terapia hormonal integral", "value": "1", "data-goto": "fc-step-hormonal-1"},
+                    <div class="cf-pill-selector-container" data-options='[
+                            {"label": "Terapia hormonal integral", "value": "1", "data-goto": "fc-step-test-1"},
                             {"label": "Consultar mi caso", "value": "2", "data-goto": "fc-step-disponibilidad"},
                             {"label": "Casandra CARE", "value": "3", "data-goto": "fc-step-disponibilidad"},
-                            {"label": "Lorem ipsum", "value": "3", "data-goto": "fc-step-disponibilidad"}
+                            {"label": "Lorem ipsum", "value": "4", "data-goto": "fc-step-disponibilidad"}
                         ]'>
-                        <input type="hidden" class="pill-selector-value" name="selected_option_2" value="">
+                        <input type="hidden" class="cf-pill-selector-value" name="motivo_consulta" value="">
                     </div>
                 </div>
                 <div class="cf-section cf-legal">
@@ -218,18 +218,18 @@ function casandra_cargar_estilos()
 { // Función para cargar los estilos CSS
     wp_enqueue_style('casandraformulario-style', plugin_dir_url(__FILE__) . 'assets/css/style.css');
     wp_enqueue_script(
-            'casandra-logic',
-            plugin_dir_url(__FILE__) . 'assets/js/steps.js',
-            array(), // Dependencias (ninguna por ahora)
-            '1.0',
-            true     // Cargar en el footer para que no ralentice la web
-    );
-    wp_enqueue_script(
-            'casandra-logic',
+            'cf-pills',
             plugin_dir_url(__FILE__) . 'assets/js/pills.js',
             array(),
             '1.0',
             true
+    );
+    wp_enqueue_script(
+            'cf-steps',
+            plugin_dir_url(__FILE__) . 'assets/js/steps.js',
+            array(), // Dependencias (ninguna por ahora)
+            '1.0',
+            true     // Cargar en el footer para que no ralentice la web
     );
 }
 

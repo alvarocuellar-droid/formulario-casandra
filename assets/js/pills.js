@@ -14,16 +14,20 @@ class PillSelector {
 
         this.options.forEach(option => {
             const pill = document.createElement('button');
+            pill.type = 'button';
             pill.className = 'cf-pill';
             pill.textContent = option.label;
             pill.dataset.value = option.value;
+            pill.dataset.goto = option['data-goto'];
 
             pill.addEventListener('click', () => {
+                console.log(this.selectedOption);
+                console.log(option.value);
+                console.log(this.hiddenInput);
                 if (this.selectedOption !== option.value) {
                     this.selectedOption = option.value;
                     this.hiddenInput.value = this.selectedOption;
                     this.updateSelection();
-                    console.log('Opción seleccionada:', this.selectedOption);
                 }
             });
 
