@@ -11,52 +11,6 @@ function casandraformulario_shortcode()
 { // Función para generar el formulario
     ob_start();
     ?>
-    <!--<div class="contenedor-formulario">
-        
-        <form action="<?php echo esc_url($_SERVER['REQUEST_URI']); ?>" method="post" id="cf-form">
-            <h3>PIDE CITA</h3>
-
-            <div class="cf-section cf-personal-data">
-                <input type="text" class="cf-input" id="cf-name" name="cf-name" placeholder="NOMBRE Y APELLIDOS" required><br>
-                <input type="tel" class="cf-input" id="cf-telephone" name="cf-telephone" placeholder="TELÉFONO" required><br>
-                <input type="email" class="cf-input" id="cf-email" name="cf-email" placeholder="EMAIL" required><br>
-            </div>
-            <div class="cf-section cf-services">
-                <button type="button" class="cf-btn-service">TERAPIA HORMONAL integral</button><br>
-                <button type="button" class="cf-btn-service">consultar mi caso</button><br>
-                <button type="button" class="cf-btn-service">CASANDRA CARE</button><br>
-                <button type="button" class="cf-btn-service">lorem ipsum</button><br>
-            </div>
-            <div class="cf-section cf-legal">
-                <div class="cf-checkbox-group">
-                    <input type="checkbox" name="cf-terms" id="cf-terms" required>
-                    <label for="cf-terms">Acepto la política de privacidady de proteccion de datos</label>
-                </div>
-                <div class="cf-checkbox-group">
-                    <input type="checkbox" name="cf-newsletter" id="cf-newsletter">
-                    <label for="cf-newsletter">Suscribirse a la newsletter</label>
-                </div>
-
-            </div>
-            <div class="cf-section cf-actions">
-                <div class="cf-action-group">
-                    <button type="button" id="cf-date" class="cf-btn-main">SELECCIONAR FECHA</button>
-                    <label for="cf-date">Elige tú misma la fecha y hora que prefieras</label>
-                </div>
-
-                <div class="cf-action-group">
-                    <button type="button" id="cf-call" class="cf-btn-main">TE LLAMAMOS</button>
-                    <label for="cf-call">Te llamamos para acordar la fecha y hora de tu visita</label>
-                </div>
-            </div>
-            <hr>
-            <div class="cf-footer-links">
-                <label class="cf-footer-links"><a href="#">Ver política de privacidad y protección de datos</a></label><br>
-                <label class="cf-footer-links"><a href="#">Ver Suscripción a la Newsletter</a></label>
-            </div>
-        </form>
-    </div>
-        -->
     <div class="contenedor-formulario">
         <form class="multi-step-form" action="javascript:" method="POST" id="cf-form">
 
@@ -69,22 +23,24 @@ function casandraformulario_shortcode()
                 </div>
                 <div class="cf-section cf-services">
                     <div class="cf-pill-selector-container" data-options='[
-                            {"label": "Terapia hormonal integral", "value": "1", "data-goto": "fc-step-test-1"},
-                            {"label": "Consultar mi caso", "value": "2", "data-goto": "fc-step-disponibilidad"},
-                            {"label": "Casandra CARE", "value": "3", "data-goto": "fc-step-disponibilidad"},
-                            {"label": "Lorem ipsum", "value": "4", "data-goto": "fc-step-disponibilidad"}
+                            {"label": "Terapia hormonal integral", "value": "1"},
+                            {"label": "Consultar mi caso", "value": "2"},
+                            {"label": "Casandra CARE", "value": "3"},
+                            {"label": "Lorem ipsum", "value": "4"}
                         ]'>
-                        <input type="hidden" class="cf-pill-selector-value" name="motivo_consulta" value="">
+                        <input type="hidden" class="cf-pill-selector-value" name="motivo_consulta" value="" id="motivo_consulta">
                     </div>
                 </div>
                 <div class="cf-section cf-legal">
                     <div class="cf-checkbox-group">
                         <input type="checkbox" name="cf-terms" id="cf-terms" required>
-                        <label for="cf-terms">Acepto la política de privacidady de proteccion de datos</label>
+                        <label for="cf-terms">Acepto la política de privacidad de proteccion de datos</label>
+                        <a href="#">[LEER]</a>
                     </div>
                     <div class="cf-checkbox-group">
                         <input type="checkbox" name="cf-newsletter" id="cf-newsletter">
                         <label for="cf-newsletter">Suscribirse a la newsletter</label>
+                        <a href="#">[LEER]</a>
                     </div>
 
                 </div>
@@ -92,13 +48,9 @@ function casandraformulario_shortcode()
                     <div class="cf-action-group">
                         <button type="button" id="cf-date" class="cf-btn-main" data-goto="fc-step-disponibilidad">Ver disponibilidad</button>
                     </div>
-                    <div class="cf-action-group">
+                    <div class="cf-action-group" data-toggle-id="motivo_consulta" data-toggle-show-if-value="1">
                         <button type="button" id="cf-call" class="cf-btn-main" data-goto="fc-step-test-1">Test de compatibilidad</button>
                     </div>
-                </div>
-                <div class="cf-footer-links">
-                    <label class="cf-footer-links"><a href="#">Ver política de privacidad y protección de datos</a></label><br>
-                    <label class="cf-footer-links"><a href="#">Ver Suscripción a la Newsletter</a></label>
                 </div>
             </div>
             <!-- Pantalla 2 -->
@@ -126,11 +78,13 @@ function casandraformulario_shortcode()
 
                         <div class="cf-question-row">
                             <label class="cf-checkbox-modern">
-                                <input type="checkbox" name="cf_cirugia" id="cf_cirugia_trigger">
+                                <input type="checkbox" name="cf_cirugia" id="cf_cirugia" value="1">
                                 <span class="cf-checkmark"></span>
                                 <span class="cf-question-text">¿Tienes cirugía ginecológica?</span>
                             </label>
-                            <input type="text" name="cf_cirugia_cual" id="cf_cirugia_input" class="cf-input-sub" placeholder="¿Cuál?">
+                            <div data-toggle-id="cf_cirugia" data-toggle-show-if-value="1">
+                                <input type="text" name="cf_cirugia_cual" id="cf_cirugia_input" class="cf-input-sub" placeholder="¿Cuál?">
+                            </div>
                         </div>
                     </div>
 
@@ -142,7 +96,6 @@ function casandraformulario_shortcode()
                                 <span class="cf-checkmark"></span>
                                 <span class="cf-question-text">Menos de 12 meses</span>
                             </label>
-                            <input type="date" name="cf_regla_fecha" id="cf_regla_fecha" class="cf-input-sub">
                         </div>
 
                         <div class="cf-question-row">
@@ -223,6 +176,13 @@ function casandra_cargar_estilos()
     wp_enqueue_script(
             'cf-steps',
             plugin_dir_url(__FILE__) . 'assets/js/steps.js',
+            array(), // Dependencias (ninguna por ahora)
+            '1.0',
+            true     // Cargar en el footer para que no ralentice la web
+    );
+    wp_enqueue_script(
+            'cf-toggle',
+            plugin_dir_url(__FILE__) . 'assets/js/toggle.js',
             array(), // Dependencias (ninguna por ahora)
             '1.0',
             true     // Cargar en el footer para que no ralentice la web

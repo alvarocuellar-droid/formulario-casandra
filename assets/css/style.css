@@ -1,3 +1,8 @@
+
+.cf-hidden {
+    display: none !important;
+}
+
 /* Contenedor principal (El Marco) */
 #cf-form {
     max-width: 450px;
@@ -8,6 +13,10 @@
     background-color: #FFFDF8;
     font-family: Barlow;
     color: #632D3A; 
+}
+
+.multi-step-form label {
+    user-select: none;
 }
 
 /* Título */
