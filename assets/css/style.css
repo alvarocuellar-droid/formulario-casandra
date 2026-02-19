@@ -24,12 +24,15 @@
 }
 
 /* Título */
-#cf-test1-title {
+.cf-form-title {
     text-align: center;
-    color: #712B38;
-    font-size: 28px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.cf-form-subtitle {
+    font-size: 24px;
+    font-weight: 400;
 }
 
 /* Inputs de texto (Nombre, Tel, Email) */

@@ -1,10 +1,14 @@
-// Pills
 class PillSelector {
     constructor(container) {
         this.container = container;
+        // Guardamos la instancia en el elemento DOM para que otros puedan acceder a ella
+        this.container.pillSelectorInstance = this;
+
         this.options = JSON.parse(container.dataset.options);
         this.hiddenInput = container.querySelector('.cf-pill-selector-value');
         this.selectedOption = null;
+        this.group = container.closest('.cf-pill-selector-group');
+
         this.render();
     }
 
@@ -18,6 +22,7 @@ class PillSelector {
             pill.className = 'cf-pill';
             pill.textContent = option.label;
             pill.dataset.value = option.value;
+
             for (const key in option) {
                 if (key.startsWith('data-')) {
                     const datasetKey = key.replace('data-', '');
@@ -26,17 +31,47 @@ class PillSelector {
             }
 
             pill.addEventListener('click', () => {
-                if (this.selectedOption !== option.value) {
-                    this.selectedOption = option.value;
-                    this.hiddenInput.value = this.selectedOption;
-                    this.updateSelection();
-                }
+                this.handleSelection(option.value);
             });
 
             selectorDiv.appendChild(pill);
         });
 
         this.container.insertBefore(selectorDiv, this.hiddenInput);
+    }
+
+    handleSelection(value) {
+        // Ahora comprobamos el valor real del input además de la memoria interna
+        if (this.selectedOption === value && this.hiddenInput.value === value) return;
+
+        if (this.group) {
+            this.clearGroupSelection();
+        }
+
+        this.selectedOption = value;
+        this.hiddenInput.value = value;
+        this.updateSelection();
+    }
+
+    // Resetea esta instancia específica
+    reset() {
+        this.selectedOption = null;
+        this.hiddenInput.value = '';
+        this.updateSelection();
+    }
+
+    clearGroupSelection() {
+        const siblingContainers = this.group.querySelectorAll('.cf-pill-selector-container');
+
+        siblingContainers.forEach(container => {
+            // Accedemos a la instancia de la clase a través del elemento DOM
+            const instance = container.pillSelectorInstance;
+
+            // Si existe la instancia y no es la actual, la reseteamos por completo
+            if (instance && instance !== this) {
+                instance.reset();
+            }
+        });
     }
 
     updateSelection() {
@@ -50,7 +85,7 @@ class PillSelector {
     }
 }
 
-// Inicializa todos los selectores en la página
+// Inicialización
 document.querySelectorAll('.cf-pill-selector-container').forEach(container => {
     new PillSelector(container);
 });

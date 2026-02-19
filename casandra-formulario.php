@@ -20,7 +20,7 @@ function casandraformulario_shortcode()
         <form class="multi-step-form" action="javascript:" method="POST" id="cf-form">
 
             <div class="step active visible" id="fc-step-inicio">
-                <h2>PIDE CITA</h2>
+                <h2 class="cf-form-title">PIDE CITA</h2>
                 <div class="cf-section cf-personal-data">
                     <input type="text" class="cf-input" id="cf-name" name="cf-name" placeholder="NOMBRE Y APELLIDOS" required><br>
                     <input type="tel" class="cf-input" id="cf-telephone" name="cf-telephone" placeholder="TELÉFONO" required><br>
@@ -61,7 +61,7 @@ function casandraformulario_shortcode()
 
             <!-- Pantalla 2 -->
             <div class="step" id="fc-step-test-1">
-                <h3 id="cf-test1-title">2.Situación Actual</h3>
+                <h3 class="cf-form-subtitle">2.Situación Actual</h3>
                 <div class="cf-step" id="step-situacion">
 
 
@@ -145,7 +145,7 @@ function casandraformulario_shortcode()
             </div>
             <!-- Pantalla 3 -->
             <div class="step" id="fc-step-test-2">
-                <h3>3. Salud general</h3>
+                <h3 class="cf-form-subtitle">3. Salud general</h3>
                 <span>¿Fumas?</span>
                 <label>
                     <input type="radio" name="cf_tabaco" value="1" />
@@ -328,7 +328,7 @@ function casandraformulario_shortcode()
             </div>
             <!-- Pantalla 5 -->
             <div class="step" id="fc-step-test-4">
-                <h3>5. ¿Cuáles serían tus objetivos con nosotros?</h3>
+                <h3 class="cf-form-subtitle">5. ¿Cuáles serían tus objetivos con nosotros?</h3>
                 <label>
                     <input type="radio" name="cf_objetivos" value="1">
                     Objetivo 1
@@ -355,7 +355,7 @@ function casandraformulario_shortcode()
             </div>
             <!-- Pantalla 6 -->
             <div class="step" id="fc-step-test-5">
-                <h3>6. Confirmación</h3>
+                <h3 class="cf-form-subtitle">6. Confirmación</h3>
                 <label>
                     <input type="checkbox" name="cf_confimo_info" value="1" required>
                     Confirmo que la información es correcta y entiendo que este cuestionario no sustituye la valoración médica.
@@ -375,9 +375,55 @@ function casandraformulario_shortcode()
                 <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-disponibilidad">Agendar una cita</button>
                 <button type="button" class="cf-btn-main btn-validate">Quiero que me llamen</button>
             </div>
-            <!-- Apartado de disponibilidad con las fechas y horas dispopnibles -->
-            <div class="step" id="fc-step-disponibilidad">
-                DISPONIBILIDAD
+            <!-- Apartado de disponibilidad con las fechas y horas disponibles -->
+            <div class="step cf-pill-selector-group" id="fc-step-disponibilidad">
+                <h2 class="cf-form-title">PIDE CITA</h2>
+
+                <div class="cf-slot">
+                    <h3 class="cf-slot__titulo">Lunes, 16 de febrero</h3>
+                    <div class="cf-slot__horas">
+                        <div class="cf-pill-selector-container" data-options='[
+                            {"label": "10:00", "value": "2026-02-16 10:00"},
+                            {"label": "11:00", "value": "2026-02-16 11:00"},
+                            {"label": "12:00", "value": "2026-02-16 12:00"},
+                            {"label": "13:00", "value": "2026-02-16 13:00"},
+                            {"label": "14:00", "value": "2026-02-16 14:00"},
+                            {"label": "15:00", "value": "2026-02-16 15:00"},
+                            {"label": "16:00", "value": "2026-02-16 16:00"},
+                            {"label": "17:00", "value": "2026-02-16 17:00"},
+                            {"label": "18:00", "value": "2026-02-16 18:00"}
+                        ]'>
+                            <input type="hidden" class="cf-pill-selector-value" name="slot">
+                        </div>
+                    </div>
+                </div>
+                <div class="cf-slot">
+                    <h3 class="cf-slot__titulo">Martes, 17 de febrero</h3>
+                    <div class="cf-slot__horas">
+                        <div class="cf-pill-selector-container" data-options='[
+                            {"label": "10:00", "value": "2026-02-17 10:00"},
+                            {"label": "11:00", "value": "2026-02-17 11:00"},
+                            {"label": "12:00", "value": "2026-02-17 12:00"},
+                            {"label": "13:00", "value": "2026-02-17 13:00"},
+                            {"label": "14:00", "value": "2026-02-17 14:00"},
+                            {"label": "15:00", "value": "2026-02-17 15:00"},
+                            {"label": "16:00", "value": "2026-02-17 16:00"},
+                            {"label": "17:00", "value": "2026-02-17 17:00"},
+                            {"label": "18:00", "value": "2026-02-17 18:00"}
+                        ]'>
+                            <input type="hidden" class="cf-pill-selector-value" name="slot">
+                        </div>
+                    </div>
+                </div>
+
+                <label>
+                    <input type="checkbox" name="cf_is_trh">
+                    Tratamiento restitución hormonal
+                </label>
+
+                <button>Confirmar cita</button>
+                <button type="button">Solicitar llamada</button>
+                <button type="button">Elegir otro día</button>
             </div>
 
         </form>
