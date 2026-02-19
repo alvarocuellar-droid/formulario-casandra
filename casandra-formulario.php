@@ -103,10 +103,9 @@ function casandraformulario_shortcode()
             </div>
             <!-- Pantalla 2 -->
             <div class="step" id="fc-step-test-1">
-                <h3 id="cf-test1-title">2.Situación Actual</h3>
+                <span id="cf-test1-title">2.Situación Actual</span>
                 <div class="cf-step" id="step-situacion">
-                    <h3>SITUACIÓN ACTUAL</h3>
-                    <p class="cf-quote">"El equilibrio hormonal es la base de tu bienestar renovado."</p>
+                    
 
                     <div class="cf-section">
                         <div class="cf-question-row">
@@ -179,9 +178,6 @@ function casandraformulario_shortcode()
                         ?>
                     </div>
 
-                    <div class="cf-navigation">
-                        <button type="button" class="cf-btn-next" data-next="step-final">CONTINUAR</button>
-                    </div>
                 </div>
 
                 <button type="button" class="cf-btn-main" data-goto="fc-step-inicio">Volver</button>
