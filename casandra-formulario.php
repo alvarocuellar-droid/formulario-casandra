@@ -143,22 +143,22 @@ function casandraformulario_shortcode()
                 <h3>3. Salud general</h3>
                 <span>¿Fumas?</span>
                 <label>
-                    <input type="radio" name="cf_tabaco" value="1"/>
+                    <input type="radio" name="cf_tabaco" value="1" />
                     Sí
                 </label>
                 <label>
-                    <input type="radio" name="cf_tabaco" value="0"/>
+                    <input type="radio" name="cf_tabaco" value="0" />
                     No
                 </label>
                 <div data-toggle-id="cf_tabaco" data-toggle-show-if-value="1">
-                    <input type="text" name="cf_tabaco_cantidad" placeholder="Cantidad/duración" value=""/>
+                    <input type="text" name="cf_tabaco_cantidad" placeholder="Cantidad/duración" value="" />
                 </div>
 
                 <label for="cf_peso">Peso (Kg)</label>
-                <input type="number" name="cf_peso" id="cf_peso" placeholder="Peso (Kg)" value=""/><br>
+                <input type="number" name="cf_peso" id="cf_peso" placeholder="Peso (Kg)" value="" /><br>
 
                 <label for="cf_altura">Altura (com)</label>
-                <input type="number" name="cf_altura" id="cf_altura" placeholder="Altura (com)" value=""/><br>
+                <input type="number" name="cf_altura" id="cf_altura" placeholder="Altura (com)" value="" /><br>
                 <br>
                 <span>Tu IMC es de: <strong id="cf_imc">-</strong></span>
 
@@ -183,11 +183,21 @@ function casandraformulario_shortcode()
                                 <span class="cf-question-text">Hipertensión</span>
                             </label>
                             <div data-toggle-id="cf_hipertension" data-toggle-show-if-value="1">
-                                <label class="cf-checkbox-modern">
-                                    <input type="checkbox" name="cf_hipertension_estable">
-                                    <span class="cf-checkmark"></span>
-                                    <span class="cf-question-text">¿Estable con medicación?</span>
-                                </label>
+
+                                <span class="cf-question-text">¿Estable con medicación?</span>
+                                <div class="cf-radio-wrapper">
+                                    <label class="cf-checkbox-modern">
+                                        <input type="radio" name="cf_hipertension_estable" value="si">
+                                        <span class="cf-checkmark cf-radio-mark"></span>
+                                        <span class="cf-question-text">Sí</span>
+                                    </label>
+
+                                    <label class="cf-checkbox-modern">
+                                        <input type="radio" name="cf_hipertension_estable" value="no">
+                                        <span class="cf-checkmark cf-radio-mark"></span>
+                                        <span class="cf-question-text">No</span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
 
@@ -198,11 +208,20 @@ function casandraformulario_shortcode()
                                 <span class="cf-question-text">Diabetes</span>
                             </label>
                             <div data-toggle-id="cf_diabetes" data-toggle-show-if-value="1">
-                                <label class="cf-checkbox-modern">
-                                    <input type="checkbox" name="cf_diabetes_estable">
-                                    <span class="cf-checkmark"></span>
-                                    <span class="cf-question-text">¿Estable con medicación?</span>
-                                </label>
+                                <span class="cf-question-text">¿Estable con medicación?</span>
+                                <div class="cf-radio-wrapper">
+                                    <label class="cf-checkbox-modern">
+                                        <input type="radio" name="cf_diabetes_estable" value="si">
+                                        <span class="cf-checkmark cf-radio-mark"></span>
+                                        <span class="cf-question-text">Sí</span>
+                                    </label>
+
+                                    <label class="cf-checkbox-modern">
+                                        <input type="radio" name="cf_diabetes_estable" value="no">
+                                        <span class="cf-checkmark cf-radio-mark"></span>
+                                        <span class="cf-question-text">No</span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
 
@@ -252,11 +271,22 @@ function casandraformulario_shortcode()
                                 <span class="cf-question-text">Cáncer de mama</span>
                             </label>
                             <div data-toggle-id="cf_cancer_mama" data-toggle-show-if-value="1">
-                                <label class="cf-checkbox-modern">
-                                    <input type="checkbox" name="cf_mama_receptores">
-                                    <span class="cf-checkmark"></span>
+                                
                                     <span class="cf-question-text">¿Con receptores positivos?</span>
-                                </label>
+                                     <div class="cf-radio-wrapper">
+                                    <label class="cf-checkbox-modern">
+                                        <input type="radio" name="cf_diabetes_estable" value="si">
+                                        <span class="cf-checkmark cf-radio-mark"></span>
+                                        <span class="cf-question-text">Sí</span>
+                                    </label>
+
+                                    <label class="cf-checkbox-modern">
+                                        <input type="radio" name="cf_diabetes_estable" value="no">
+                                        <span class="cf-checkmark cf-radio-mark"></span>
+                                        <span class="cf-question-text">No</span>
+                                    </label>
+                                </div>
+                                
                             </div>
                         </div>
 
@@ -285,7 +315,7 @@ function casandraformulario_shortcode()
                         </label>
                     </div>
                     <br>
-                    
+
                 </div>
                 <button type="button" class="cf-btn-main" data-goto="fc-step-test-2">Volver</button>
                 <button type="button" class="cf-btn-main" data-goto="fc-step-test-4">Siguiente</button>
@@ -365,11 +395,11 @@ function casandra_cargar_estilos()
         true     // Cargar en el footer para que no ralentice la web
     );
     wp_enqueue_script(
-            'cf-imc-calculator',
-            plugin_dir_url(__FILE__) . 'assets/js/imc-calculator.js',
-            array(), // Dependencias (ninguna por ahora)
-            '1.0',
-            true     // Cargar en el footer para que no ralentice la web
+        'cf-imc-calculator',
+        plugin_dir_url(__FILE__) . 'assets/js/imc-calculator.js',
+        array(), // Dependencias (ninguna por ahora)
+        '1.0',
+        true     // Cargar en el footer para que no ralentice la web
     );
 }
 
