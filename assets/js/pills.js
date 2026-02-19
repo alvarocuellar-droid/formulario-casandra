@@ -18,12 +18,14 @@ class PillSelector {
             pill.className = 'cf-pill';
             pill.textContent = option.label;
             pill.dataset.value = option.value;
-            pill.dataset.goto = option['data-goto'];
+            for (const key in option) {
+                if (key.startsWith('data-')) {
+                    const datasetKey = key.replace('data-', '');
+                    pill.dataset[datasetKey] = option[key];
+                }
+            }
 
             pill.addEventListener('click', () => {
-                console.log(this.selectedOption);
-                console.log(option.value);
-                console.log(this.hiddenInput);
                 if (this.selectedOption !== option.value) {
                     this.selectedOption = option.value;
                     this.hiddenInput.value = this.selectedOption;

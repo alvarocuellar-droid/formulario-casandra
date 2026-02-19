@@ -69,12 +69,12 @@ function casandraformulario_shortcode()
                 </div>
                 <div class="cf-section cf-services">
                     <div class="cf-pill-selector-container" data-options='[
-                            {"label": "Terapia hormonal integral", "value": "1", "data-goto": "fc-step-test-1"},
-                            {"label": "Consultar mi caso", "value": "2", "data-goto": "fc-step-disponibilidad"},
-                            {"label": "Casandra CARE", "value": "3", "data-goto": "fc-step-disponibilidad"},
-                            {"label": "Lorem ipsum", "value": "4", "data-goto": "fc-step-disponibilidad"}
+                            {"label": "Terapia hormonal integral", "value": "1"},
+                            {"label": "Consultar mi caso", "value": "2"},
+                            {"label": "Casandra CARE", "value": "3"},
+                            {"label": "Lorem ipsum", "value": "4"}
                         ]'>
-                        <input type="hidden" class="cf-pill-selector-value" name="motivo_consulta" value="">
+                        <input type="hidden" class="cf-pill-selector-value" name="motivo_consulta" value="" id="motivo_consulta">
                     </div>
                 </div>
                 <div class="cf-section cf-legal">
@@ -92,7 +92,7 @@ function casandraformulario_shortcode()
                     <div class="cf-action-group">
                         <button type="button" id="cf-date" class="cf-btn-main" data-goto="fc-step-disponibilidad">Ver disponibilidad</button>
                     </div>
-                    <div class="cf-action-group">
+                    <div class="cf-action-group" data-toggle-id="motivo_consulta" data-toggle-show-if-value="1">
                         <button type="button" id="cf-call" class="cf-btn-main" data-goto="fc-step-test-1">Test de compatibilidad</button>
                     </div>
                 </div>
@@ -227,6 +227,13 @@ function casandra_cargar_estilos()
     wp_enqueue_script(
             'cf-steps',
             plugin_dir_url(__FILE__) . 'assets/js/steps.js',
+            array(), // Dependencias (ninguna por ahora)
+            '1.0',
+            true     // Cargar en el footer para que no ralentice la web
+    );
+    wp_enqueue_script(
+            'cf-toggle',
+            plugin_dir_url(__FILE__) . 'assets/js/toggle.js',
             array(), // Dependencias (ninguna por ahora)
             '1.0',
             true     // Cargar en el footer para que no ralentice la web

@@ -1,3 +1,8 @@
+
+.cf-hidden {
+    display: none !important;
+}
+
 /* Contenedor principal (El Marco) */
 #cf-form {
     max-width: 450px;
