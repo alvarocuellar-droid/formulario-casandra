@@ -170,8 +170,45 @@ function casandraformulario_shortcode()
             <div class="step" id="fc-step-test-3">
                 <h3>Test 3</h3>
                 <button type="button" class="cf-btn-main" data-goto="fc-step-test-2">Volver</button>
-                <button type="button" class="cf-btn-main" data-goto="fc-step-disponibilidad">Ver disponibilidad</button>
+                <button type="button" class="cf-btn-main" data-goto="fc-step-test-4">Siguiente</button>
 
+            </div>
+            <!-- Pantalla 5 -->
+            <div class="step" id="fc-step-test-4">
+                <h3>5. ¿Cuáles serían tus objetivos con nosotros?</h3>
+                <label>
+                    <input type="radio" name="cf_objetivos" value="1">
+                    Objetivo 1
+                </label>
+                <label>
+                    <input type="radio" name="cf_objetivos" value="2">
+                    Objetivo 2
+                </label>
+                <label>
+                    <input type="radio" name="cf_objetivos" value="3">
+                    Objetivo 3
+                </label>
+                <label>
+                    <input type="radio" name="cf_objetivos" value="4">
+                    Objetivo 4
+                </label>
+                <label>
+                    <input type="radio" name="cf_objetivos" value="5">
+                    Objetivo 5
+                </label>
+
+                <button type="button" class="cf-btn-main" data-goto="fc-step-test-3">Volver</button>
+                <button type="button" class="cf-btn-main" data-goto="fc-step-test-5">Siguiente</button>
+            </div>
+            <!-- Pantalla 6 -->
+            <div class="step" id="fc-step-test-5">
+                <h3>6. Confirmación</h3>
+                <label>
+                    <input type="checkbox" name="cf_confimo_info" value="1" required>
+                    Confirmo que la información es correcta y entiendo que este cuestionario no sustituye la valoración médica.
+                </label>
+                <button type="button" class="cf-btn-main" data-goto="fc-step-test-4">Volver</button>
+                <button type="button" class="cf-btn-main" data-goto="fc-step-disponibilidad">Ver disponibilidad</button>
             </div>
             <!-- Apartado de disponibilidad con las fechas y horas dispopnibles -->
             <div class="step" id="fc-step-disponibilidad">
