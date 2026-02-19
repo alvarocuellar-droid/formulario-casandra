@@ -139,7 +139,29 @@ function casandraformulario_shortcode()
             </div>
             <!-- Pantalla 3 -->
             <div class="step" id="fc-step-test-2">
-                <h3>Test 2</h3>
+                <h3>3. Salud general</h3>
+                <span>¿Fumas?</span>
+                <label>
+                    <input type="radio" name="cf_tabaco" value="1"/>
+                    Sí
+                </label>
+                <label>
+                    <input type="radio" name="cf_tabaco" value="0"/>
+                    No
+                </label>
+                <div data-toggle-id="cf_tabaco" data-toggle-show-if-value="1">
+                    <input type="text" name="cf_tabaco_cantidad" placeholder="Cantidad/duración" value=""/>
+                </div>
+
+                <label for="cf_peso">Peso (Kg)</label>
+                <input type="number" name="cf_peso" id="cf_peso" placeholder="Peso (Kg)" value=""/><br>
+
+                <label for="cf_altura">Altura (com)</label>
+                <input type="number" name="cf_altura" id="cf_altura" placeholder="Altura (com)" value=""/><br>
+                <br>
+                <span>Tu IMC es de: <strong id="cf_imc">-</strong></span>
+
+
                 <button type="button" class="cf-btn-main" data-goto="fc-step-test-1">Volver</button>
                 <button type="button" class="cf-btn-main" data-goto="fc-step-test-3">Siguiente</button>
 
@@ -183,6 +205,13 @@ function casandra_cargar_estilos()
     wp_enqueue_script(
             'cf-toggle',
             plugin_dir_url(__FILE__) . 'assets/js/toggle.js',
+            array(), // Dependencias (ninguna por ahora)
+            '1.0',
+            true     // Cargar en el footer para que no ralentice la web
+    );
+    wp_enqueue_script(
+            'cf-imc-calculator',
+            plugin_dir_url(__FILE__) . 'assets/js/imc-calculator.js',
             array(), // Dependencias (ninguna por ahora)
             '1.0',
             true     // Cargar en el footer para que no ralentice la web
