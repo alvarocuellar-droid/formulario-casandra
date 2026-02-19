@@ -10,6 +10,7 @@ Author: Alvaro Cuellar
 function casandraformulario_shortcode()
 { // Función para generar el formulario
     ob_start();
+    $imgUrl = plugin_dir_url(__FILE__) . 'assets/img/';
     ?>
     <div class="contenedor-formulario">
         <form class="multi-step-form" action="javascript:" method="POST" id="cf-form">
@@ -133,7 +134,7 @@ function casandraformulario_shortcode()
 
                 </div>
 
-                <button type="button" class="cf-btn-main" data-goto="fc-step-inicio">Volver</button>
+                <button type="button" class="cf-btn-main" data-goto="fc-step-inicio">Anterior</button>
                 <button type="button" class="cf-btn-main" data-goto="fc-step-test-2">Siguiente</button>
 
             </div>
@@ -162,14 +163,14 @@ function casandraformulario_shortcode()
                 <span>Tu IMC es de: <strong id="cf_imc">-</strong></span>
 
 
-                <button type="button" class="cf-btn-main" data-goto="fc-step-test-1">Volver</button>
+                <button type="button" class="cf-btn-main" data-goto="fc-step-test-1">Anterior</button>
                 <button type="button" class="cf-btn-main" data-goto="fc-step-test-3">Siguiente</button>
 
             </div>
             <!-- Pantalla 4 -->
             <div class="step" id="fc-step-test-3">
                 <h3>Test 3</h3>
-                <button type="button" class="cf-btn-main" data-goto="fc-step-test-2">Volver</button>
+                <button type="button" class="cf-btn-main" data-goto="fc-step-test-2">Anterior</button>
                 <button type="button" class="cf-btn-main" data-goto="fc-step-test-4">Siguiente</button>
 
             </div>
@@ -197,7 +198,7 @@ function casandraformulario_shortcode()
                     Objetivo 5
                 </label>
 
-                <button type="button" class="cf-btn-main" data-goto="fc-step-test-3">Volver</button>
+                <button type="button" class="cf-btn-main" data-goto="fc-step-test-3">Anterior</button>
                 <button type="button" class="cf-btn-main" data-goto="fc-step-test-5">Siguiente</button>
             </div>
             <!-- Pantalla 6 -->
@@ -207,8 +208,20 @@ function casandraformulario_shortcode()
                     <input type="checkbox" name="cf_confimo_info" value="1" required>
                     Confirmo que la información es correcta y entiendo que este cuestionario no sustituye la valoración médica.
                 </label>
-                <button type="button" class="cf-btn-main" data-goto="fc-step-test-4">Volver</button>
-                <button type="button" class="cf-btn-main" data-goto="fc-step-disponibilidad">Ver disponibilidad</button>
+                <button type="button" class="cf-btn-main" data-goto="fc-step-test-4">Anterior</button>
+                <button type="button" class="cf-btn-main" data-goto="fc-step-test-6">Terminar</button>
+            </div>
+
+            <!-- Pantalla 7 -->
+            <div class="step" id="fc-step-test-6">
+                <div class="cf-msg">
+                    <img src="<?= $imgUrl ?>check.svg" alt="Check">
+                    <p>Has realizado exitosamente el test de compatibilidad. Según tus respuestas podrían ser candidata para realizar un tratamiento de restitución hormonal.</p>
+
+                </div>
+
+                <button type="button" class="cf-btn-main" data-goto="fc-step-disponibilidad">Agendar una cita</button>
+                <button type="button" class="cf-btn-main">Quiero que me llamen</button>
             </div>
             <!-- Apartado de disponibilidad con las fechas y horas dispopnibles -->
             <div class="step" id="fc-step-disponibilidad">
