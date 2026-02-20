@@ -15,7 +15,7 @@ function casandraformulario_shortcode()
 {
     ob_start();
     $imgUrl = plugin_dir_url(__FILE__) . 'assets/img/';
-    ?>
+?>
     <div class="contenedor-formulario">
         <form class="multi-step-form" action="javascript:" method="POST" id="cf-form">
 
@@ -51,17 +51,17 @@ function casandraformulario_shortcode()
                 </div>
                 <div class="cf-section cf-actions">
                     <div class="cf-action-group">
-                        <button type="button" id="cf-date" class="cf-btn-main btn-validate" data-goto="fc-step-disponibilidad">Ver disponibilidad</button>
+                        <button type="button" id="cf-btn-disponibilidad" class="cf-btn-main btn-validate" data-goto="fc-step-disponibilidad">Ver disponibilidad</button>
                     </div>
                     <div class="cf-action-group" data-toggle-id="motivo_consulta" data-toggle-show-if-value="1">
-                        <button type="button" id="cf-call" class="cf-btn-main btn-validate" data-goto="fc-step-test-1">Test de compatibilidad</button>
+                        <button type="button" id="cf-btn-test" class="cf-btn-main btn-validate" data-goto="fc-step-test-1">Test de compatibilidad</button>
                     </div>
                 </div>
             </div>
 
             <!-- Pantalla 2 -->
             <div class="step" id="fc-step-test-1">
-                <h3 class="cf-form-subtitle">2.Situación Actual</h3>
+                <h3 class="cf-form-subtitle">2. Situación Actual</h3>
                 <div class="cf-step" id="step-situacion">
 
 
@@ -156,9 +156,9 @@ function casandraformulario_shortcode()
                     No
                 </label>
                 <div data-toggle-id="cf_tabaco" data-toggle-show-if-value="1">
-                    <input type="text" name="cf_tabaco_cantidad" placeholder="Cantidad/duración" value="">
+                    <input class="cf-input-sub" type="text" name="cf_tabaco_cantidad" placeholder="Cantidad/duración" value="">
                 </div>
-
+                <br>
                 <label for="cf_peso">Peso (Kg)</label>
                 <input type="number" name="cf_peso" id="cf_peso" placeholder="Peso (Kg)" min="20" max="300" value="" required><br>
 
@@ -166,6 +166,8 @@ function casandraformulario_shortcode()
                 <input type="number" name="cf_altura" id="cf_altura" placeholder="Altura (cm)" min="100" max="250" value="" required><br>
                 <br>
                 <span>Tu IMC es de: <strong id="cf_imc">-</strong></span>
+                <br>
+                <br>
 
 
                 <button type="button" class="cf-btn-main" data-goto="fc-step-test-1">Anterior</button>
@@ -176,7 +178,7 @@ function casandraformulario_shortcode()
             <div class="step" id="fc-step-test-3">
 
                 <div class="cf-step" id="step-antecedentes">
-                    <p class="cf-fake-h3">4. ANTECEDENTES PERSONALES DE IMPORTANCIA</p>
+                    <h3 class="cf-form-subtitle">4. Antecedentes personales de importancia</h3>
 
                     <div class="cf-section">
                         <p class="cf-sub-title">¿Padeces alguna enfermedad?</p>
@@ -187,7 +189,7 @@ function casandraformulario_shortcode()
                                 <span class="cf-checkmark"></span>
                                 <span class="cf-question-text">Hipertensión</span>
                             </label>
-                            <div data-toggle-id="cf_hipertension" data-toggle-show-if-value="1">
+                            <div class="cf-toggle" data-toggle-id="cf_hipertension" data-toggle-show-if-value="1">
 
                                 <span class="cf-question-text">¿Estable con medicación?</span>
                                 <div class="cf-radio-wrapper">
@@ -212,7 +214,7 @@ function casandraformulario_shortcode()
                                 <span class="cf-checkmark"></span>
                                 <span class="cf-question-text">Diabetes</span>
                             </label>
-                            <div data-toggle-id="cf_diabetes" data-toggle-show-if-value="1">
+                            <div class="cf-toggle" data-toggle-id="cf_diabetes" data-toggle-show-if-value="1">
                                 <span class="cf-question-text">¿Estable con medicación?</span>
                                 <div class="cf-radio-wrapper">
                                     <label class="cf-checkbox-modern">
@@ -275,10 +277,10 @@ function casandraformulario_shortcode()
                                 <span class="cf-checkmark"></span>
                                 <span class="cf-question-text">Cáncer de mama</span>
                             </label>
-                            <div data-toggle-id="cf_cancer_mama" data-toggle-show-if-value="1">
-                                
-                                    <span class="cf-question-text">¿Con receptores positivos?</span>
-                                     <div class="cf-radio-wrapper">
+                            <div class="cf-toggle" data-toggle-id="cf_cancer_mama" data-toggle-show-if-value="1">
+
+                                <span class="cf-question-text">¿Con receptores positivos?</span>
+                                <div class="cf-radio-wrapper">
                                     <label class="cf-checkbox-modern">
                                         <input type="radio" name="cf_diabetes_estable" value="si">
                                         <span class="cf-checkmark cf-radio-mark"></span>
@@ -291,7 +293,7 @@ function casandraformulario_shortcode()
                                         <span class="cf-question-text">No</span>
                                     </label>
                                 </div>
-                                
+
                             </div>
                         </div>
 
@@ -330,25 +332,21 @@ function casandraformulario_shortcode()
             <div class="step" id="fc-step-test-4">
                 <h3 class="cf-form-subtitle">5. ¿Cuáles serían tus objetivos con nosotros?</h3>
                 <label>
-                    <input type="radio" name="cf_objetivos" value="1">
-                    Objetivo 1
+                    <textarea class="cf-input-sub" name="cf_objetivos" placeholder="Objetivo 1"></textarea>
                 </label>
                 <label>
-                    <input type="radio" name="cf_objetivos" value="2">
-                    Objetivo 2
+                    <textarea class="cf-input-sub" name="cf_objetivos" placeholder="Objetivo 2"></textarea>
                 </label>
                 <label>
-                    <input type="radio" name="cf_objetivos" value="3">
-                    Objetivo 3
+                    <textarea class="cf-input-sub" name="cf_objetivos" placeholder="Objetivo 3"></textarea>
                 </label>
                 <label>
-                    <input type="radio" name="cf_objetivos" value="4">
-                    Objetivo 4
+                    <textarea class="cf-input-sub" name="cf_objetivos" placeholder="Objetivo 4"></textarea>
                 </label>
                 <label>
-                    <input type="radio" name="cf_objetivos" value="5">
-                    Objetivo 5
+                    <textarea class="cf-input-sub" name="cf_objetivos" placeholder="Objetivo 5"></textarea>
                 </label>
+
 
                 <button type="button" class="cf-btn-main" data-goto="fc-step-test-3">Anterior</button>
                 <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-test-5">Siguiente</button>
@@ -356,10 +354,12 @@ function casandraformulario_shortcode()
             <!-- Pantalla 6 -->
             <div class="step" id="fc-step-test-5">
                 <h3 class="cf-form-subtitle">6. Confirmación</h3>
-                <label>
-                    <input type="checkbox" name="cf_confimo_info" value="1" required>
-                    Confirmo que la información es correcta y entiendo que este cuestionario no sustituye la valoración médica.
-                </label>
+                <div class="cf-step5-label">
+                    <label>
+                        <input type="checkbox" name="cf_confimo_info" value="1" required>
+                        Confirmo que la información es correcta y entiendo que este cuestionario no sustituye la valoración médica.
+                    </label>
+                </div>
                 <button type="button" class="cf-btn-main" data-goto="fc-step-test-4">Anterior</button>
                 <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-test-6">Terminar</button>
             </div>
@@ -367,13 +367,15 @@ function casandraformulario_shortcode()
             <!-- Pantalla 7 -->
             <div class="step" id="fc-step-test-6">
                 <div class="cf-msg">
-                    <img src="<?= $imgUrl ?>check.svg" alt="Check">
+                    <img class="cf-img-check" src="<?= $imgUrl ?>check.svg" alt="Check">
                     <p>Has realizado exitosamente el test de compatibilidad. Según tus respuestas podrían ser candidata para realizar un tratamiento de restitución hormonal.</p>
 
                 </div>
+                <div class="cf-actions-final">
+                    <button type="button" class="cf-btn-main">Quiero que me llamen</button>
+                    <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-disponibilidad">Agendar una cita</button>
 
-                <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-disponibilidad">Agendar una cita</button>
-                <button type="button" class="cf-btn-main btn-validate">Quiero que me llamen</button>
+                </div>
             </div>
             <!-- Apartado de disponibilidad con las fechas y horas disponibles -->
             <div class="step cf-pill-selector-group" id="fc-step-disponibilidad">
@@ -420,10 +422,12 @@ function casandraformulario_shortcode()
                     <input type="checkbox" name="cf_is_trh">
                     Tratamiento restitución hormonal
                 </label>
-
-                <button>Confirmar cita</button>
-                <button type="button">Solicitar llamada</button>
-                <button type="button">Elegir otro día</button>
+                <br>
+                <div class="cf-btn-btn-final">
+                    <button class="cf-btn-cita">Confirmar cita</button>
+                    <button class="cf-btn-call" type="button">Solicitar llamada</button>
+                    <button class="cf-btn-date" type="button">Elegir otro día</button>
+                </div>
             </div>
 
         </form>
@@ -443,7 +447,7 @@ function casandra_cargar_estilos()
     $assetsUrl = plugin_dir_url(__FILE__) . 'assets/';
     wp_enqueue_style('casandraformulario-style', $assetsUrl . 'css/style.css');
 
-    wp_enqueue_script('cf-validate', $assetsUrl. 'js/validate.js', [], '1.0', true);
+    wp_enqueue_script('cf-validate', $assetsUrl . 'js/validate.js', [], '1.0', true);
     wp_enqueue_script('cf-pills', $assetsUrl . 'js/pills.js', [], '1.0', true);
     wp_enqueue_script('cf-steps', $assetsUrl . 'js/steps.js', [], '1.0', true);
     wp_enqueue_script('cf-toggle', $assetsUrl . 'js/toggle.js', [], '1.0', true);

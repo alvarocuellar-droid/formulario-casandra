@@ -1,10 +1,10 @@
-
 .cf-hidden {
     display: none !important;
 }
 
 /* Contenedor principal (El Marco) */
 #cf-form {
+
     max-width: 450px;
     margin: 20px auto;
     padding: 30px;
@@ -12,7 +12,7 @@
     border-radius: 30px;
     background-color: #FFFDF8;
     font-family: Barlow;
-    color: #632D3A; 
+    color: #632D3A;
 }
 
 .multi-step-form label {
@@ -22,7 +22,9 @@
 .multi-step-form strong {
     font-weight: bold !important;
 }
-
+.cf-step5-label{
+    margin: 20px 0
+}
 /* Título */
 .cf-form-title {
     text-align: center;
@@ -33,6 +35,7 @@
 .cf-form-subtitle {
     font-size: 24px;
     font-weight: 400;
+    margin: 0 0 10px 0;
 }
 
 /* Inputs de texto (Nombre, Tel, Email) */
@@ -40,13 +43,14 @@
     width: 100%;
     padding: 8px 40px;
     margin-bottom: 10px;
-    border: 1px solid  #632D3A;
+    border: 1px solid #632D3A;
     font-family: Barlow;
     font-size: 22px;
     border-radius: 5px;
     background: transparent;
     color: #712B38;
-    box-sizing: border-box; /* Importante para que no se salga del marco */
+    box-sizing: border-box;
+    /* Importante para que no se salga del marco */
 }
 
 .cf-input::placeholder {
@@ -54,49 +58,70 @@
     opacity: 0.8;
 }
 
-
-/* Botones de Servicios */
-.cf-btn-service {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+/*Inputs adicionales del test*/
+.cf-input-sub {
+    width: 75%;
+    padding: 5px 10px;
+    margin-top: 10px;
     border: 1px solid #632D3A;
-    border-radius: 25px; 
+    font-family: Barlow;
+    font-size: 18px;
+    border-radius: 5px;
     background: transparent;
     color: #712B38;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    box-sizing: border-box;
 }
-.cf-services{
+
+#cf_peso,
+#cf_altura {
+    width: 30%;
+    padding: 5px 10px;
     margin-top: 10px;
+    border: 1px solid #632D3A;
+    font-family: Barlow;
+    font-size: 18px;
+    border-radius: 5px;
+    background: transparent;
+    color: #712B38;
+    box-sizing: border-box;
+}
+.cf-toggle{
     
+    font-size: 17px;
+    padding: 5px 30px;
+}
+
+
+
+/* Botones de Servicios */
+.cf-services {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.cf-services {
+    margin-top: 10px;
+
 }
 
 .cf-btn-service:hover {
-    background-color: #F0CCD7;  
-}
-
-
-/* Sección de Acciones */
-.cf-actions {
-    display: flex;
-    justify-content: space-between;
-}
-
-.cf-action-group {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: left;
-    
+    background-color: #F0CCD7;
 }
 
 
 
-/* Botón Seleccionar Fecha (Amarillo suave) */
-#cf-date {
-    background-color: #EBE682;
+
+
+
+
+/*(Rosa malva)*/
+
+#cf-btn-disponibilidad {
+    width: 100%;
+    background-color: #DD7D99;
     border: none;
     border-radius: 20px;
     padding: 15px;
@@ -104,9 +129,10 @@
     cursor: pointer;
 }
 
-/* Botón Te Llamamos (Rosa malva) */
-#cf-call {
-    background-color: #DD7D99;
+/*(Amarillo suave)*/
+#cf-btn-test {
+    width: 100%;
+    background-color: #EBE682;
     border: none;
     border-radius: 20px;
     padding: 15px;
@@ -123,9 +149,13 @@
 }
 
 /* Checkboxes y Legal */
-.cf-checkbox-group{
+
+.cf-legal {
+    margin-top: 10px;
+}
+
+.cf-checkbox-group {
     width: 70%;
-    margin: 20px 0;
     font-size: 16px;
     font-family: Barlow;
     display: flex;
@@ -133,6 +163,8 @@
     gap: 10px;
     margin-bottom: 10px;
 }
+
+
 
 
 
@@ -176,7 +208,8 @@ hr {
 
 
 /* Estilo básico para botones */
-button, .options-group label {
+button,
+.options-group label {
     display: inline-block;
     margin: 5px;
     padding: 10px;
@@ -185,35 +218,111 @@ button, .options-group label {
     background: #f9f9f9;
 }
 
+.cf-btn-main {
+    background-color: #EBE682;
+    border: none;
+    border-radius: 20px;
+    padding: 15px 30px;
+    color: #712B38;
+    cursor: pointer;
+}
 
+.btn-validate {
+    background-color: #DD7D99;
+    border: none;
+    border-radius: 20px;
+    padding: 15px 30px;
+    color: #712B38;
+    cursor: pointer;
+}
+.cf-actions-final{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.cf-btn-btn-final{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+.cf-btn-cita{
+    width: 100%;
+    background-color: #DD7D99;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 30px;
+    color: #712B38;
+    cursor: pointer;
+    font-size: 20px;
+}
+.cf-btn-call{
+    width: 47%;
+    background-color: #EBE682;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 30px;
+    color: #712B38;
+    cursor: pointer;
+    font-size: 20px;
+}
+.cf-btn-date{
+    width: 47%;
+    background-color: transparent;
+    border: solid  1px #632D3A;
+    border-radius: 20px;
+    padding: 10px 30px;
+    color: #712B38;
+    cursor: pointer;
+    font-size: 20px;
+}
 /* Pastillas selección  */
 
-.cf-pill-selector-container {
-    margin: 20px;
-}
 
 .cf-pill-selector {
     display: flex;
-    gap: 10px;
     flex-wrap: wrap;
 }
 
-.cf-pill {
-    padding: 8px 16px;
-    border: 2px solid #ff0000;
-    color: #ff0000;
-    background-color: transparent;
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: Arial, sans-serif;
-    transition: all 0.2s ease;
+#fc-step-disponibilidad .cf-pill {
+    width: 20%;
+    margin: 10px 10px;
 }
 
+
+.cf-pill {
+
+    width: 100%;
+    padding: 10px;
+    margin: 0 0 10px 0;
+    border: 1px solid #632D3A;
+    border-radius: 25px;
+    background: transparent;
+    color: #712B38;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
 .cf-pill.selected {
-    background-color: #ff0000;
-    color: white;
+    background-color: #F0CCD7;
 }
 
 .cf-pill:hover:not(.selected) {
-    background-color: rgba(255, 0, 0, 0.1);
+
+    background-color: #F0CCD7;
+}
+
+/*Imagen*/
+.cf-msg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.cf-img-check{
+    align-items: center;
 }
