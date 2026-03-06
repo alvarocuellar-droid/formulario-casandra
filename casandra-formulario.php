@@ -22,9 +22,9 @@ function casandraformulario_shortcode()
             <div class="step active visible" id="fc-step-inicio">
                 <h2 class="cf-form-title">PIDE CITA</h2>
                 <div class="cf-section cf-personal-data">
-                    <input type="text" class="cf-input" id="cf-name" name="cf-name" placeholder="NOMBRE Y APELLIDOS" required><br>
-                    <input type="tel" class="cf-input" id="cf-telephone" name="cf-telephone" placeholder="TELÉFONO" required><br>
-                    <input type="email" class="cf-input" id="cf-email" name="cf-email" placeholder="EMAIL" required><br>
+                    <input type="text" class="cf-input" id="cf-name" name="name" placeholder="NOMBRE Y APELLIDOS" required><br>
+                    <input type="tel" class="cf-input" id="cf-telephone" name="phone" placeholder="TELÉFONO" required><br>
+                    <input type="email" class="cf-input" id="cf-email" name="email" placeholder="EMAIL" required><br>
                 </div>
                 <div class="cf-section cf-services">
                     <div class="cf-pill-selector-container" data-options='[
@@ -33,17 +33,17 @@ function casandraformulario_shortcode()
                             {"label": "Casandra CARE", "value": "3"},
                             {"label": "Lorem ipsum", "value": "4"}
                         ]'>
-                        <input type="hidden" class="cf-pill-selector-value" name="motivo_consulta" value="" id="motivo_consulta">
+                        <input type="hidden" class="cf-pill-selector-value" name="id_consultation_reason" value="" id="motivo_consulta">
                     </div>
                 </div>
                 <div class="cf-section cf-legal">
                     <div class="cf-checkbox-group">
-                        <input type="checkbox" name="cf-terms" id="cf-terms" required>
+                        <input type="checkbox" name="terms" id="cf-terms" required>
                         <label for="cf-terms">Acepto la política de privacidad de proteccion de datos</label>
                         <a href="#">[LEER]</a>
                     </div>
                     <div class="cf-checkbox-group">
-                        <input type="checkbox" name="cf-newsletter" id="cf-newsletter">
+                        <input type="checkbox" name="subscribe" id="cf-newsletter">
                         <label for="cf-newsletter">Suscribirse a la newsletter</label>
                         <a href="#">[LEER]</a>
                     </div>
