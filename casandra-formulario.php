@@ -139,9 +139,11 @@ function casandraformulario_shortcode()
 
                 </div>
 
-                <button type="button" class="cf-btn-main" data-goto="fc-step-inicio">Anterior</button>
-                <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-test-2">Siguiente</button>
 
+                <div class="cf-navBtn-main">
+                    <button type="button" class="cf-btn-main" data-goto="fc-step-inicio">Anterior</button>
+                    <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-test-2">Siguiente</button>
+                </div>
             </div>
             <!-- Pantalla 3 -->
             <div class="step" id="fc-step-test-2">
@@ -169,10 +171,10 @@ function casandraformulario_shortcode()
                 <br>
                 <br>
 
-
-                <button type="button" class="cf-btn-main" data-goto="fc-step-test-1">Anterior</button>
-                <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-test-3">Siguiente</button>
-
+                <div class="cf-navBtn-main">
+                    <button type="button" class="cf-btn-main" data-goto="fc-step-test-1">Anterior</button>
+                    <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-test-3">Siguiente</button>
+                </div>
             </div>
             <!-- Pantalla 4 -->
             <div class="step" id="fc-step-test-3">
@@ -324,9 +326,10 @@ function casandraformulario_shortcode()
                     <br>
 
                 </div>
-                <button type="button" class="cf-btn-main" data-goto="fc-step-test-2">Anterior</button>
-                <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-test-4">Siguiente</button>
-
+                <div class="cf-navBtn-main">
+                    <button type="button" class="cf-btn-main" data-goto="fc-step-test-2">Anterior</button>
+                    <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-test-4">Siguiente</button>
+                </div>
             </div>
             <!-- Pantalla 5 -->
             <div class="step" id="fc-step-test-4">
@@ -347,9 +350,11 @@ function casandraformulario_shortcode()
                     <textarea class="cf-input-sub" name="cf_objetivos" placeholder="Objetivo 5"></textarea>
                 </label>
 
+                <div class="cf-navBtn-main">
 
-                <button type="button" class="cf-btn-main" data-goto="fc-step-test-3">Anterior</button>
-                <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-test-5">Siguiente</button>
+                    <button type="button" class="cf-btn-main" data-goto="fc-step-test-3">Anterior</button>
+                    <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-test-5">Siguiente</button>
+                </div>
             </div>
             <!-- Pantalla 6 -->
             <div class="step" id="fc-step-test-5">
@@ -360,8 +365,10 @@ function casandraformulario_shortcode()
                         Confirmo que la información es correcta y entiendo que este cuestionario no sustituye la valoración médica.
                     </label>
                 </div>
-                <button type="button" class="cf-btn-main" data-goto="fc-step-test-4">Anterior</button>
-                <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-test-6">Terminar</button>
+                <div class="cf-navBtn-main">
+                    <button type="button" class="cf-btn-main" data-goto="fc-step-test-4">Anterior</button>
+                    <button type="button" class="cf-btn-main btn-validate" data-goto="fc-step-test-6">Terminar</button>
+                </div>
             </div>
 
             <!-- Pantalla 7 -->

@@ -33,7 +33,7 @@
 }
 
 .cf-form-subtitle {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 400;
     margin: 0 0 10px 0;
 }
@@ -163,6 +163,9 @@
     gap: 10px;
     margin-bottom: 10px;
 }
+.cf-checkbox-modern{
+    cursor: pointer;
+}
 
 
 
@@ -208,6 +211,8 @@ hr {
 
 
 /* Estilo básico para botones */
+
+
 button,
 .options-group label {
     display: inline-block;
@@ -218,7 +223,14 @@ button,
     background: #f9f9f9;
 }
 
+.cf-navBtn-main{
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+}
+
 .cf-btn-main {
+    
     background-color: #EBE682;
     border: none;
     border-radius: 20px;
